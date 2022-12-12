@@ -18,35 +18,35 @@ import static javax.persistence.CascadeType.ALL;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name ="User_details")
+@Table(name = "User_details")
 @Entity
 //@EntityListeners(AuditingEntityListener.class)
 public class User {
     @Id
-    @GenericGenerator(name = "user_generator", strategy = "increment")
-    @GeneratedValue(generator = "user_generator")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="user_id_generator")
+    @SequenceGenerator(name="user_id_generator", sequenceName="user_id_generator", allocationSize=1,initialValue = 1015)
     private Long id;
 
-    @Column(name="first_name")
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name="last_name")
+    @Column(name = "last_name")
     private String lastName;
 
-    @Column(name="phone_number")
+    @Column(name = "phone_number")
     private String phoneNumber;
 
-    @Column(name="email")
+    @Column(name = "email")
     private String email;
 
-    @Column(name="address")
+    @Column(name = "address")
     private String address;
 
-    @Column(name="created_at")
+    @Column(name = "created_at")
     @CreatedDate
     private Date createdAt;
 
-    @Column(name="updated_at")
+    @Column(name = "updated_at")
     @LastModifiedDate
     private Date updatedAt;
 

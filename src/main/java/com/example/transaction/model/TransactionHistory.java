@@ -47,7 +47,6 @@ public class TransactionHistory {
 
     private BigDecimal afterBalance;
 
-
     @Enumerated(EnumType.STRING)
     private TransactionStatus status;
 
